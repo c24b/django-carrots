@@ -40,7 +40,7 @@ Le paquet adéquat est alors téléchargé depuis `PyPI <http://pypi.python.org>
 Démarrage du projet
 -------------------
 
-Django fournit le script d'administration ``django-admin.py`` qui permet entre autres choses de créer l'arborescence initiale du site. Pour démarrer le nouveau projet, exécutez la commande suivante : ``django-admin.py startproject carrots`` ::
+Django fournit le script d'administration ``django-admin.py`` qui permet entre autres choses de créer l'arborescence initiale du site. Pour démarrer le nouveau projet, exécutez la commande suivante : ``django-admin.py startproject carrots``
 
 .. code-block:: sh
 
