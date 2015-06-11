@@ -1,8 +1,10 @@
 # Morse Exercice
 
-En cas d\'urgence et de panique liée à cet ordinateur, vous pouvez avoir besoin d'envoyer un signal de détresse.
+En cas d'urgence et de panique liée à cet ordinateur, vous pouvez avoir besoin d'envoyer un signal de détresse.
 Le signal de détresse, SOS (Save Our Soul) est en effet le signal le plus connu pour communiquer sa position critique par la lumière ou par le son.
+
 Elle est utilisé par les bateaux et par les naufragés elle passe par la lumière ou le son, elle permet aussi d'identifier les phares des cotes.
+
 Nous nous allons pour notre part commencer à afficher des signaux morse depuis le terminal. En commencant par notre fameux signal de détresse SOS.
 
 Pour écrire un SOS en morse:
@@ -10,34 +12,44 @@ S.O.S va se traduire en morse par (... --- ...) soit 3 signaux courts 3 signaux 
 Le S est donc égal à "..." et le O à "---"
  
 Vous connaissez déjà la fonction print().
-Nous allons donc créer un '''programme''' qui stocke les deux lettres et leur equivalent en morse dans des '''variables'''.
-#Variables
-Tout d'abord ouvrons un nouveau fichier et enregistrons-le  sous le nom morse.py
-'''
-s = "..."
-o = "---"
-print(s+o+s)
-'''		
+Nous allons donc créer un *_programme_* qui stocke les deux lettres et leur equivalent en morse dans des *_variables_*.
+Une variable est une boite dans laquelle on stocke une référence à une valeur (entier, chaine de caractère ou résultat d'un calcul).
 
-#Function
-Si on veut la réutiliser et éviter de taper à chaque fois les mêmes instructions,il vaut mieux les enregistrer dans une fonction
+
+
+##Variables
+Tout d'abord ouvrons un nouveau fichier et enregistrons-le sous le nom morse.py.
+Nous assignons deux *__variables__* ici s et o
+
+``` python
+	s = "..."
+	o = "---"
+	print(s+o+s)
+``` 
+
+
+
+#Fonctions
+Si on veut la réutiliser et éviter de taper à chaque fois les mêmes instructions, il vaut mieux les enregistrer dans une *__fonction__*.
 Une fonction c'est un mini moteur, une instruction simple qui prend une donnée en entrée execute l'instruction (calcule) et renvoie la réponse.
 En python on l'écrit def ma_fonction() on met les instructions à la luigne et on la ferme en lui  disant ce qu'elle retourne
 Notre première fonction va se contenter d'imprimer notre signal de détresse. On crée donc la fonction et on l'appelle à la fin du fichier.
 
-'''
+``` python
+
 	def print_sos():
 		s = "..."
 		o = "---"
 		print s+o+s
 		return
 	print_sos()
-'''
+```
 
 J'ai maintenant une fonction toute simple que je peux appeler à plusieurs reprises
 Maintenant si on est malin on peut encore simplifier le code et réduire le signal au mininum. On peut aussi vouloir découper le signal et signifier que notre mot est terminé
 On va donc ajouter une nouvelle variable "stop" pour découper le mot et ainsi savoir quand le mot est terminé.
-'''
+
+``` python
 	def print_sos():
 		s = "..."
 		o = "---"
@@ -59,10 +71,10 @@ si on considère que s est égal à trois points et o égal à trois tirets. On 
 	'''	
 	
 
-Si on voulait l'executer plusieurs fois, on peut imprimer autant de fois print_sos à la fin du fichier. Mais les informaticiens sont flemmards et la machine est là 
+Si on voulait l'exécuter plusieurs fois, on peut imprimer autant de fois print_sos à la fin du fichier. Mais les informaticiens sont flemmards et la machine est là 
 pour nous éviter de refaire la même chose et faire notre travail répétitif et ennuyeux.
 On a besoin de dire à la machine combien de fois on veut imprimer notre SOS.
-On va donc étendre la fonction et lui donner le nb de fois ou on veut imprimer le signal.
+On va donc étendre la fonction et lui donner le nombre de fois où l'on veut imprimer le signal.
 
 Pour qu'on puisse mieux lire les différents SOS et visualiser la fin de la phrase on va lui ajouter une nouvelle ligne. Et souvenez vous python est une super calculatrice capable de
 multiplier du texte 
@@ -71,13 +83,14 @@ multiplier du texte
 	def print_sos(nb):
 		s = "..."
 		o = "---"
-		print (s+o+s+"\n") * nb
+		stop = "|"
+		print (s+o+s+stop) * nb
 		return
 		
 	print_sos(26)
 '''
 
-#Define a fonction and return
+
 On a donc une fonction qui prend en entrée le nombre de fois où l'on veut emettre le signal SOS, pour l'instant elle ne se contente que d'afficher.
 Si on veut rendre ce programme encore plus facile à utiliser, imaginons par exemple que nous avons un robot qui transforme le . et le - en sons différents, 
 ou une machine qui allume et éteigne une lampe plus ou moins longtemps.
@@ -94,7 +107,7 @@ On va donc demander à la fonction de la retourner et donc on va changer le nom 
 	emit_sos(26)
 '''
 
-#Embedding functions 
+
 Rassurez vous on peut toujours le demander de l'imprimer dans le terminal pour vérifier que cela marche
 '''
 	def emit_sos(nb):
@@ -107,6 +120,7 @@ Rassurez vous on peut toujours le demander de l'imprimer dans le terminal pour v
 
 On a donc une fonction utilisable ici on lui a greffé la fonction print à l'exterieur pour la visualiser dans le terminal.
 mais on pourrait faire autre chose par exemple la jouer en son et créer une fonction play au lieu de print.
+
 '''
 	play(emit_sos(26))
 '''
@@ -117,8 +131,9 @@ emette un son sourt pour le "." et un son long pour "-" et un temps de silence p
 
 On va donc d'abord créer une nouvelle fonction qui prend un signal en entrée : un point ou un tiret et renvoie un son.
 
-Pour savoir si c'est un point ou un tiret on va utilise des conditions si(if) alors sinon (else). 
+Pour savoir si c'est un point ou un tiret on va utilise des conditions si ```if``` alors sinon ```else```. 
 Quand on a plusieurs conditions on ajoute elif. Ici on a donc 2 conditions: (un . ou un -)
+
 
 Pour Windows on va utiliser une mini librarie qui permet de faire du son sur l'ordinateur on l'appelle windsound 
 et on la met dans notre programme en l'important avec l'instruction import:
